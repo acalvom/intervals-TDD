@@ -39,6 +39,8 @@
         <jdk.version>1.8</jdk.version>
         <deploy>${project.artifactId}-${project.version}</deploy>
         <!-- Maven -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.version>3.6.2</maven.compiler.version>
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
         <!-- Maven. Test de Integración -->
