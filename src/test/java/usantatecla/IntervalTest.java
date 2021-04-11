@@ -117,4 +117,11 @@ public class IntervalTest {
     assertFalse(interval1.intersect(interval2));
   }
 
+  @Test
+  public void givenIntervalWhenIntersectWithLeftIntervalPartiallyWithinThenTrue() {
+    Interval interval1 = this.intervalBuilder.closed(left.getEquals()).closed(right.getEquals()).build();
+    Interval interval2 = this.intervalBuilder2.closed(left.getLess()).closed(right.getEquals()).build();
+    assertTrue(interval1.intersect(interval2));
+  }
+
 }
