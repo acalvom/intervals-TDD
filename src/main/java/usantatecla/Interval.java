@@ -19,7 +19,7 @@ public class Interval {
 		if((this.max.value == interval.min.value) && (interval.min.isOpened())){
 			return false;
 		}
-		return this.include(interval.min.value);
+		return this.include(interval.min.value) || this.include(interval.max.value);
 	}
 
 	@Override
