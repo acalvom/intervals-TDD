@@ -76,52 +76,52 @@ public class IntervalTest {
   }
 
   @Test
-  public void givenIntervalWhenIntersectWithIntervalOutsideThenFalse() {
-    Interval interval1 = this.intervalBuilder.closed(left.getEquals()).closed(right.getEquals()).build();
-    Interval interval2 = this.intervalBuilder2.closed(right.getGreater()).closed(right.getGreater()).build();
-    assertFalse(interval1.intersect(interval2));
+  public void givenIntervalWhenIntersectWithRightIntervalOutsideThenFalse() {
+    Interval intervalLeft = this.intervalBuilder.closed(left.getEquals()).closed(right.getEquals()).build();
+    Interval intervalRight = this.intervalBuilder2.closed(right.getGreater()).closed(right.getGreater()).build();
+    assertFalse(intervalLeft.intersect(intervalRight));
   }
 
   @Test
-  public void givenIntervalWhenIntersectWithIntervalPartiallyWithinThenTrue() {
-    Interval interval1 = this.intervalBuilder.closed(left.getEquals()).closed(right.getEquals()).build();
-    Interval interval2 = this.intervalBuilder2.closed(left.getGreater()).closed(right.getGreater()).build();
-    assertTrue(interval1.intersect(interval2));
+  public void givenIntervalWhenIntersectWithRightIntervalPartiallyWithinThenTrue() {
+    Interval intervalLeft = this.intervalBuilder.closed(left.getEquals()).closed(right.getEquals()).build();
+    Interval intervalRight = this.intervalBuilder2.closed(left.getGreater()).closed(right.getGreater()).build();
+    assertTrue(intervalLeft.intersect(intervalRight));
   }
 
   @Test
-  public void givenIntervalWhenIntersectWithIntervalLimitValueThenTrue() {
-    Interval interval1 = this.intervalBuilder.closed(left.getEquals()).closed(right.getEquals()).build();
-    Interval interval2 = this.intervalBuilder2.closed(right.getEquals()).closed(right.getGreater()).build();
-    assertTrue(interval1.intersect(interval2));
+  public void givenIntervalWhenIntersectWithRightIntervalLimitValueThenTrue() {
+    Interval intervalLeft = this.intervalBuilder.closed(left.getEquals()).closed(right.getEquals()).build();
+    Interval intervalRight = this.intervalBuilder2.closed(right.getEquals()).closed(right.getGreater()).build();
+    assertTrue(intervalLeft.intersect(intervalRight));
   }
 
   @Test
-  public void givenIntervalClosedWhenIntersectWithIntervalOpenLimitValueThenFalse() {
-    Interval interval1 = this.intervalBuilder.closed(left.getEquals()).closed(right.getEquals()).build();
-    Interval interval2 = this.intervalBuilder2.open(right.getEquals()).closed(right.getGreater()).build();
-    assertFalse(interval1.intersect(interval2));
+  public void givenIntervalClosedWhenIntersectWithRightIntervalOpenLimitValueThenFalse() {
+    Interval intervalLeft = this.intervalBuilder.closed(left.getEquals()).closed(right.getEquals()).build();
+    Interval intervalRight = this.intervalBuilder2.open(right.getEquals()).closed(right.getGreater()).build();
+    assertFalse(intervalLeft.intersect(intervalRight));
   }
 
   @Test
-  public void givenIntervalOpenWhenIntersectWithIntervalClosedLimitValueThenFalse() {
-    Interval interval1 = this.intervalBuilder.closed(left.getEquals()).open(right.getEquals()).build();
-    Interval interval2 = this.intervalBuilder2.closed(right.getEquals()).closed(right.getGreater()).build();
-    assertFalse(interval1.intersect(interval2));
+  public void givenIntervalOpenWhenIntersectWithRightIntervalClosedLimitValueThenFalse() {
+    Interval intervalLeft = this.intervalBuilder.closed(left.getEquals()).open(right.getEquals()).build();
+    Interval intervalRight = this.intervalBuilder2.closed(right.getEquals()).closed(right.getGreater()).build();
+    assertFalse(intervalLeft.intersect(intervalRight));
   }
 
   @Test
-  public void givenIntervalOpenWhenIntersectWithIntervalOpenLimitValueThenFalse() {
-    Interval interval1 = this.intervalBuilder.closed(left.getEquals()).open(right.getEquals()).build();
-    Interval interval2 = this.intervalBuilder2.open(right.getEquals()).closed(right.getGreater()).build();
-    assertFalse(interval1.intersect(interval2));
+  public void givenIntervalOpenWhenIntersectWithRightIntervalOpenLimitValueThenFalse() {
+    Interval intervalLeft = this.intervalBuilder.closed(left.getEquals()).open(right.getEquals()).build();
+    Interval intervalRight = this.intervalBuilder2.open(right.getEquals()).closed(right.getGreater()).build();
+    assertFalse(intervalLeft.intersect(intervalRight));
   }
 
   @Test
   public void givenIntervalWhenIntersectWithLeftIntervalPartiallyWithinThenTrue() {
-    Interval interval1 = this.intervalBuilder.closed(left.getEquals()).closed(right.getEquals()).build();
-    Interval interval2 = this.intervalBuilder2.closed(left.getLess()).closed(right.getEquals()).build();
-    assertTrue(interval1.intersect(interval2));
+    Interval intervalRight = this.intervalBuilder.closed(left.getEquals()).closed(right.getEquals()).build();
+    Interval intervalLeft = this.intervalBuilder2.closed(left.getLess()).closed(right.getEquals()).build();
+    assertTrue(intervalRight.intersect(intervalLeft));
   }
 
 }
