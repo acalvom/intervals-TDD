@@ -16,7 +16,7 @@ public class Interval {
 	}
 
 	public boolean intersect(Interval interval) {
-		if((this.max.value == interval.min.value) && (interval.min.isOpened())){
+		if((this.max.value == interval.min.value) && (interval.min.isOpened()) || (this.min.value == interval.max.value) && (interval.max.isOpened())){
 			return false;
 		}
 		return this.include(interval.min.value) || this.include(interval.max.value);
