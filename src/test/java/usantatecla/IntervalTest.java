@@ -138,4 +138,18 @@ public class IntervalTest {
     assertTrue(intervalRight.intersect(intervalLeft));
   }
 
+  @Test
+  public void givenIntervalOpenWhenIntersectWithLeftIntervalClosedLimitValueThenFalse() {
+    Interval intervalRight = this.intervalBuilder.open(left.getEquals()).closed(right.getEquals()).build();
+    Interval intervalLeft = this.intervalBuilder2.closed(left.getLess()).closed(left.getEquals()).build();
+    assertFalse(intervalRight.intersect(intervalLeft));
+  }
+
+  @Test
+  public void givenIntervalClosedWhenIntersectWithLeftIntervalOpenLimitValueThenFalse() {
+    Interval intervalRight = this.intervalBuilder.closed(left.getEquals()).closed(right.getEquals()).build();
+    Interval intervalLeft = this.intervalBuilder2.closed(left.getLess()).open(left.getEquals()).build();
+    assertFalse(intervalRight.intersect(intervalLeft));
+  }
+
 }
